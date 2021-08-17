@@ -1,3 +1,5 @@
+This project is built with React, Sanity and Tailwindcss
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

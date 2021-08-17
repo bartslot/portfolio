@@ -3,8 +3,10 @@ import Home from './components/Home';
 import About from './components/About';
 import SinglePost from './components/SinglePost';
 import Post from './components/Post';
-import Project from './components/Project';
+import Work from './components/Work';
+import SingleWork from './components/SingleWork';
 import NavBar from './components/NavBar';
+
 
 function App() {
   return (
@@ -15,12 +17,9 @@ function App() {
         <Route component={About} path='/about' />
         <Route component={SinglePost} path='/post/:slug' />
         <Route component={Post} path='/post' />
-        <Route component={Project} path='/project' />
-          <div>
-            <h1 className="text-3xl">is this visible</h1>
-          </div>    
+        <Route component={Work} path='/work' />  
+        <Route component={SingleWork} path='/work/:slug' />  
       </Switch>
-      
     </BrowserRouter>
   );
 }

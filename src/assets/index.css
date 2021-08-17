@@ -1,8 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
 
-.header, h1, h2 {
-    font-family: 'Georama', sans-serif;
+.header, h1, h2, .logo {
+    font-family: 'Basic', sans-serif;
 }
 .home-name {
     font-size: 150px;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: system-ui;
+  margin: 0;
+  /* overflow: hidden; */
+  background: radial-gradient(67.9% 64.79007633587787% at 50% 50%, var(--BlueOrigin, #343451) 0%, hsl(211, 16%, 16%) 100%);
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+.text-block {
+  width: 75%;
+  top: 33%;
+  z-index: 1;
+  left: 10%;
+}
+.logo {
+  width: auto; /* 122px */
+  height: auto; /* 26px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Basic", serif;
+  color: #ffffff;
+  font-size: 26px;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: left;
+  text-transform: uppercase;
+}
+.active-menu-item {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.card {
+  min-height: 440px;
 }

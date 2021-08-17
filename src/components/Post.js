@@ -29,7 +29,7 @@ export default function Post() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {postData &&
                     postData.map((post, index) => (
-                        <article>
+                        <article key={post.slug.current}>
                         <Link to={"/post/" + post.slug.current} key={post.slug.current}>
                             <img src={post.mainImage.asset.url} alt={post.slug.current} />
                             <span>
