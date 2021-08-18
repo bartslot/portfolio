@@ -11,13 +11,6 @@ function urlFor(source) {
 
 export default function SingleWork() {
     
-    const styles = useSpring({
-        to: async (next, cancel) => {
-        await next({ opacity: 1, color: '#ffaaee' })
-        await next({ opacity: 0, color: 'rgb(14,26,19)' })
-        },
-        from: { opacity: 0, color: 'red' },
-    })
     const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } })
     const [ singleWork, setSingleWork] = useState(null);
     const { slug } = useParams();
@@ -42,20 +35,24 @@ export default function SingleWork() {
 
     if (!singleWork) return <div>Loading...</div>
     return (
-        <main className="bg-gray-200 min-h-screen p-12">
-            <article className="container shadow-lg mx-auto bg-blue-200 rounded-lg">
+        <main className="min-h-screen bg-white">
+            <div className="min-h-28 w-full flex items-left justify-left container p-28 pt-64 bg-cover bg-center shadow-inner-3xl" style={{backgroundImage: `url(${singleWork.mainImage.asset.url})`}}>
+                <h1 className="text-white text-5xl">{singleWork.title}</h1>
+            </div>
+            <article className="container p-28">
                 <header className="relative">
-                    <div className="h-full w-full flex items-center justify-center p-8">
-                        <animated.div style={props} className="bg-white bg-opacity-75 rounded p-12">
-                             <animated.h1 style={styles} className="text-3xl lg:text-6xl mb-4">{singleWork.title}</animated.h1>
+                    <div className="h-full w-full flex items-center justify-center p-xl">
+                        <animated.div style={props} className="bg-white bg-opacity-75 rounded p-xl">
+                            <span className="text-gray-900 uppercase">About the project</span>
+                            <h1>{singleWork.title}</h1>
                             <div className="flex justify-center text-gray-800">
-                            <img src={urlFor(singleWork.authorImage).url()} alt={singleWork.name} 
+                            <img src={urlFor(singleWork.overviewImage).url()} alt={singleWork.name} 
                             className="max-w-30 rounded-full" /> 
                             </div>
                         </animated.div>
                     </div>
                 </header>
-                <div> <h1>{singleWork.title}</h1> </div>
+                <div><h1>{singleWork.title}</h1></div>
                 <div>YOUTUBE CONTENT</div>
             </article>
         </main>
