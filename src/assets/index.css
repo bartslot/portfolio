@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book&family=Poppins:wght@300;600&display=swap');
 
-.header, h1, h2, .logo {
-    font-family: 'Basic', sans-serif;
+h2, h3, body, html, .logo {
+    font-family: "Poppins", serif;
+}
+h2.about, h1 {
+  font-family: "Gentium Book", serif;
 }
 .home-name {
     font-size: 150px;
@@ -12,13 +15,55 @@ body,
   height: 100%;
   width: 100%;
 }
-
+body:before {
+  animation: grain 8s steps(10) infinite;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png);
+  content: "";
+  pointer-events: none;
+  height: 300%;
+  left: -50%;
+  opacity: 0.1;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+}
 body {
-  font-family: system-ui;
-  margin: 0;
-  /* overflow: hidden; */
   background: radial-gradient(67.9% 64.79007633587787% at 50% 50%, var(--BlueOrigin, #343451) 0%, hsl(211, 16%, 16%) 100%);
 }
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
 
 *,
 *:after,
@@ -32,24 +77,16 @@ body {
   left: 10%;
 }
 .logo {
-  width: auto; /* 122px */
-  height: auto; /* 26px */
-  overflow: visible;
-  white-space: pre;
-  font-weight: 400;
-  font-style: normal;
-  font-family: "Basic", serif;
-  color: #ffffff;
-  font-size: 26px;
+  color: white;
+  font-size: 1.3em;
   letter-spacing: 2px;
-  line-height: 1;
-  text-align: left;
   text-transform: uppercase;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
 }
 .active-menu-item {
   font-weight: bold;
   font-size: 1.4rem;
 }
-.card {
-  min-height: 440px;
+.card, .card-image video, .card-image, .card-image > div {
+  min-height: 42.5vh;
 }

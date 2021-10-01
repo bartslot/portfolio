@@ -38,22 +38,52 @@ export default {
         {
             name: 'body',
             title: 'Body',
-            type: 'blockContent'
+            type: 'blockContent',
         },
+        // details
         {
-            name: 'date',
-            title: 'Published at',
-            type: 'datetime'
+            name: 'role',
+            type: 'string'
         },
         {
             name: 'client',
             type: 'string'
         },
         {
+            name: 'date',
+            title: 'Published at',
+            type: 'date',
+            options: {
+                dateFormat: 'MMMM YYYY',
+              },
+        },
+        // About 
+        {
+            title: 'About title',
+            name: 'aboutTitle',
+            type: 'string',
+        },
+        {
+            title: 'About content', 
+            name: 'aboutContent',
+            type: 'array', 
+            of: [{type: 'block'}]
+        },
+        {
+            title: 'Content Image',
+            name: 'contentImage',
+            type: 'contentImage',
+        },
+        {
             name: 'categories',
             title: 'Categories',
             type: 'array',
             of: [{type: 'reference', to: {type: 'category'}}],
+        },
+        {
+            name: 'contentVideo',
+            title: 'Content Video',
+            type: 'video',
         },
         {
             name: 'mainImage',
@@ -72,25 +102,30 @@ export default {
             },
         },
         {
-            name: 'youtube',
-            type: 'youtube'
+            title: 'Video',
+            name: 'video',
+            type: 'video',
         },
+        // {
+        //     name: 'youtube',
+        //     type: 'youtube',
+        // },
         {
             name: 'foregroundColor',
             title: 'Foreground color',
-            type: 'color'
+            type: 'color',
         },
         {
             name: 'backgroundColor',
             title: 'Background color',
-            type: 'color'
+            type: 'color',
         },
     ],
     preview: {
         select: {
             title: 'title',
             author: 'author.name',
-            media: 'mainImage'
+            media: 'mainImage',
         },
         prepare(selection) {
             const {author} = selection
