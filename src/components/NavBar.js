@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from './bartlogo.svg'
 
 export default function NavBar() {
     return (
@@ -38,7 +37,7 @@ export default function NavBar() {
                         </NavLink>
                         <NavLink to='/contact'
                             activeClassName='active-menu-item'
-                            className='inflex-flex self-center items-center py-2 px-12 md:ml-12 md:ml-4 rounded-full border-white border-2 text-white hover:text-blue-200 text-1xl'>
+                            className='inflex-flex self-center items-center py-2 px-12 md:ml-12 rounded-full border-white border-2 text-white hover:text-blue-200 text-1xl'>
                             Contact                     
                         </NavLink>
                     </div>

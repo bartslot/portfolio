@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {PortableText, BlockContent } from "@sanity/block-content-to-react";
+import { PortableText, BlockContent } from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../client.js";
 import { useSpring, animated } from "react-spring";
@@ -22,9 +22,9 @@ export default function SingleWork() {
         </pre>
       ),
       mainImage: props =>(
-        <div class="py-10">
-          <img class="rounded-sm" src={urlFor.props.node.asset} alt={props.node.alt} />
-          <p class="text-xs italic">{props.node.asset.caption}</p>
+        <div className="py-10">
+          <img className="rounded-sm" src={urlFor.props.node.asset} alt={props.node.alt} />
+          <p className="text-xs italic">{props.node.asset.caption}</p>
         </div>
       ),
     },
@@ -33,36 +33,29 @@ export default function SingleWork() {
   useEffect(() => {
     sanityClient
       .fetch(
-        `slug.current == "${slug}"]{
-            title,
-            subtitle,
-            slug,
-            aboutTitle,
-            aboutContent,
-            role,
-            client,
-            date,
+        `{ slug.current { eq: "${slug}" } 
+        {
+            title
+            slug{ current }
+            aboutTitle
+            aboutContentRaw
+            role
+            client
+            date
             mainImage{
-              asset-> {
-                  _id,
+              asset {
+                  _id
                   url
-              },
-              alt
-            },
-            body[]{
-                ..., 
-                asset->{
-                  ...,
-                  "_key": _id,
-                }
-            },
-            foregroundColor,
+              }
+            }
+            bodyRaw
+          }
         }`)
       .then((data) => setSingleWork(data[0]))
       .catch(console.error);
   }, [slug]);
   
-  if (!singleWork) return <div class="container">Loading...</div>;
+  if (!singleWork) return <div className="container">Loading...</div>;
   return (
     <main className="min-h-screen bg-white">
       <div
@@ -112,7 +105,7 @@ export default function SingleWork() {
               </section>
               <section>
                 <PortableText blocks={singleWork.body} serializers={serializers} />
-                {/* <BlockContent blocks={singleWork.contentImage} serializers={serializers} /> */}
+                <BlockContent blocks={singleWork.contentImage} serializers={serializers} />
               </section>
             </animated.div>
           </div>
